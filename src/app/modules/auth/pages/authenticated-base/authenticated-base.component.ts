@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./authenticated-base.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthenticatedBaseComponent implements OnInit {
+export class AuthenticatedBaseComponent {
   public userEmail$ = this.fireAuth.user.pipe(
     map((user) => user?.email),
   );
@@ -20,11 +20,8 @@ export class AuthenticatedBaseComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit(): void {
-  }
-
   public logout(): void {
-    this.router.navigateByUrl('/login');
     this.fireAuth.signOut();
+    this.router.navigateByUrl('/login');
   }
 }

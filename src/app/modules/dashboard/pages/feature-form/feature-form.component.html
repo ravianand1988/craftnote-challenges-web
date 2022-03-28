@@ -1,0 +1,37 @@
+<h2>Add feature</h2>
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Feature Name</mat-label>
+    <input matInput cdkFocusInitial
+      formControlName="featureName"
+    >
+    <mat-error *ngIf="form.controls.featureName.invalid">
+      {{ form.controls.featureName.errors | json }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Importance</mat-label>
+    <input matInput
+      formControlName="importance"
+    >
+    <mat-error *ngIf="form.controls.importance.invalid">
+      {{ form.controls.importance.errors | json }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Quantity</mat-label>
+    <input matInput
+      formControlName="quantity"
+    >
+    <mat-error *ngIf="form.controls.quantity.invalid">
+      {{ form.controls.quantity.errors | json }}
+    </mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions right>
+    <button mat-button [mat-dialog-close]="form.value">OK</button>
+    <button mat-button (click)="cancel()">Cancel</button>
+  </div>
+</form>

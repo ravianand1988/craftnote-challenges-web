@@ -1,0 +1,10 @@
+<button mat-flat-button color="primary" (click)="addFeature()">
+  <mat-icon>add</mat-icon>
+  <span>Add feature</span>
+</button>
+<div echarts [options]="options" class="demo-chart"></div>
+<ul>
+  <li *ngFor="let feature of features | async">
+    <!-- <pre>{{ feature | json }}</pre> -->
+  </li>
+</ul>

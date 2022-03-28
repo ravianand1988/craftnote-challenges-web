@@ -1,0 +1,18 @@
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  > button {
+    margin-right: 1rem;
+  }
+}
+
+.user-email {
+ margin-right: 1rem;
+}
+
+.content-wrapper {
+  display: flex;
+  background-color: #e5e5e5;
+}
