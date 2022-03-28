@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  background-color: #e5e5e5;
+}
+
+mat-card {
+  max-width: 450px;
+  padding: 2.5rem 2rem;
+}
+
+.mat-form-field {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+mat-card-title {
+  margin-bottom: 1.5rem;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.register-error {
+  margin-bottom: 1.5rem;
+  width: 350px;
+}
+
+mat-error {
+  font-size: 0.875rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
