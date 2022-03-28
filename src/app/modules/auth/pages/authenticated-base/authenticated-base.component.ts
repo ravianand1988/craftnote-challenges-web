@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
-import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-authenticated-base',
@@ -9,13 +11,20 @@ import { Observable, of } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticatedBaseComponent implements OnInit {
-  public userName$: Observable<string> = of('ravi');
-  constructor() { }
+  public userEmail$ = this.fireAuth.user.pipe(
+    map((user) => user?.email),
+  );
+
+  constructor(
+    private fireAuth: AngularFireAuth,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
   public logout(): void {
-    console.log('logging out...');
+    this.router.navigateByUrl('/login');
+    this.fireAuth.signOut();
   }
 }

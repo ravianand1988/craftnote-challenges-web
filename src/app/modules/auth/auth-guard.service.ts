@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import {
   ActivatedRouteSnapshot,
   CanActivateChild,
@@ -6,13 +7,14 @@ import {
   UrlTree,
 } from '@angular/router';
 
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { first, map } from 'rxjs/operators';
 import { APP_SETTINGS } from 'src/app/settings';
 
 @Injectable()
 export class AuthGuardService implements CanActivateChild {
   constructor(
+    private fireAuth: AngularFireAuth,
     private router: Router,
   ) { }
 
@@ -21,7 +23,7 @@ export class AuthGuardService implements CanActivateChild {
    */
   public canActivateChild(snapshot: ActivatedRouteSnapshot): Observable<boolean | UrlTree> {
     const requiresAuth = !this._isNoAuthRoute(snapshot);
-    const user$ = of(null); // of({ name: 'ravi', email: 'r.k@cbs.com' });
+    const user$ = this.fireAuth.user;
 
     return user$.pipe(
       first(),

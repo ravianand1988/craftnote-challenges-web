@@ -1,4 +1,7 @@
-<div *ngIf="userName$ | async as user"> Auth toolbar {{ user }}</div>
+<div *ngIf="(userEmail$ | async) as email">
+  Auth toolbar {{ email }}
+</div>
+<button mat-flat-button (click)="logout()">Logout</button>
 <div class="base">
   <router-outlet></router-outlet>
 </div>
