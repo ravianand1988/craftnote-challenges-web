@@ -1,1 +1,56 @@
-<p>register works!</p>
+<mat-card>
+  <mat-card-title>
+    Create your account
+  </mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form">
+      <mat-form-field>
+        <input
+          type="text"
+          matInput
+          placeholder="john@craftnote.de"
+          formControlName="email"
+        >
+        <mat-error *ngIf="form.get('email')?.invalid">
+          {{ getEmailError() }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          type="password"
+          matInput
+          placeholder="Password"
+          formControlName="password"
+        >
+        <mat-error *ngIf="form.get('password')?.invalid">
+          {{ getPasswordError() }}
+        </mat-error>
+      </mat-form-field>
+
+      <div
+        *ngIf="(registerError$ | async) as error"
+        class="register-error"
+      >
+        <mat-error>{{ error }}</mat-error>
+      </div>
+
+      <div class="form-actions">
+        <button
+          mat-stroked-button
+          [routerLink]="['/login']"
+        >
+          Already a member?
+        </button>
+        <button
+          type="submit"
+          mat-raised-button
+          color="primary"
+          (click)="submit()"
+        >
+          Register
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

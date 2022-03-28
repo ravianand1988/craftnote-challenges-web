@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { createAuthForm, FormErrorCode } from '../../auth.form-config';
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   private _loginError = new Subject<string>();
   public loginError$: Observable<string> = this._loginError.asObservable();
 
@@ -22,9 +22,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private fireAuth: AngularFireAuth,
   ) { }
-
-  ngOnInit(): void {
-  }
 
   public submit(): void {
     if (!this.form.valid) {
@@ -38,7 +35,7 @@ export class LoginComponent implements OnInit {
       .then(() => this.router.navigateByUrl('/dashboard'))
       .catch((error) => {
         this._loginError.next(error.message);
-        console.warn('error on user create: ', error);
+        console.warn('error on user login: ', error);
       });
   }
 
