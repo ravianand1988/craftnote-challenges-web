@@ -1,3 +1,7 @@
+.container-wrapper {
+  height: 100%;
+}
+
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -10,9 +14,4 @@
 
 .user-email {
  margin-right: 1rem;
-}
-
-.content-wrapper {
-  display: flex;
-  background-color: #e5e5e5;
 }

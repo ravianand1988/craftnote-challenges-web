@@ -21,7 +21,8 @@ export class AuthenticatedBaseComponent {
   ) { }
 
   public logout(): void {
-    this.fireAuth.signOut();
-    this.router.navigateByUrl('/login');
+    this.fireAuth.signOut()
+      .then(() => this.router.navigateByUrl('/login'))
+      .catch((error) => console.error('Error logging out', error.message));
   }
 }

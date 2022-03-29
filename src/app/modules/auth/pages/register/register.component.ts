@@ -4,7 +4,11 @@ import { Router } from '@angular/router';
 
 import { Observable, Subject } from 'rxjs';
 
-import { createAuthForm, FormErrorCode } from '../../auth.form-config';
+import {
+  createAuthForm,
+  getEmailError,
+  getPasswordError,
+} from '../../auth.form-config';
 
 @Component({
   selector: 'app-register',
@@ -17,6 +21,8 @@ export class RegisterComponent {
   public registerError$: Observable<string> = this._registerError.asObservable();
 
   public form = createAuthForm();
+  public getEmailError = getEmailError;
+  public getPasswordError = getPasswordError;
 
   constructor(
     private router: Router,
@@ -37,32 +43,5 @@ export class RegisterComponent {
         this._registerError.next(error.message);
         console.warn('error on user create: ', error);
       });
-  }
-
-  public getEmailError(): string {
-    let message = '';
-    const { email } = this.form.controls;
-
-    if (email.hasError(FormErrorCode.Required)) {
-      message = 'required';
-    } else if (email.hasError(FormErrorCode.Email)) {
-      message = 'Must be a valid email';
-    }
-
-    return message;
-  }
-
-  public getPasswordError(): string {
-    let message = '';
-    const { password } = this.form.controls;
-
-    if (password.hasError(FormErrorCode.Required)) {
-      message = 'required';
-    } else if (password.hasError(FormErrorCode.Pattern)) {
-      message = `password must has at least 8 characters and contains uppercase letters,
-       lowercase letters and numbers`;
-    }
-
-    return message;
   }
 }

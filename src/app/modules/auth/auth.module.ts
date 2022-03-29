@@ -4,7 +4,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
 import { AuthGuardService } from './auth-guard.service';
 import { AuthRoutingModule } from './auth-routing.module';
-import { AuthFormComponent } from './components';
 import {
   AuthenticatedBaseComponent,
   LoginComponent,
@@ -16,15 +15,14 @@ import {
 @NgModule({
   declarations: [
     AuthenticatedBaseComponent,
-    AuthFormComponent,
     LoginComponent,
     RegisterComponent,
     UnauthenticatedBaseComponent,
   ],
   imports: [
     AuthRoutingModule,
-    SharedModule,
     MatToolbarModule,
+    SharedModule,
   ],
   providers: [
     AuthGuardService,

@@ -1,5 +1,24 @@
 :host {
   display: block;
   padding: 2.5rem;
-  width: 100%;
+}
+
+.header-features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    margin-bottom: 0;
+  }
+}
+
+.content-features {
+  margin: 2.5rem auto;
+  background-color: #F2F2F2;
+}
+
+.footer-features {
+  display: flex;
+  justify-content: flex-end;
 }

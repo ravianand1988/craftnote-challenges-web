@@ -1,4 +1,10 @@
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 function createFeatureForm(): FormGroup {
   const form = new FormBuilder().group({
@@ -10,6 +16,21 @@ function createFeatureForm(): FormGroup {
   return form;
 }
 
+function getFeatureControlError(control: FormControl | AbstractControl): string {
+  let error;
+
+  if (control.hasError('required')) {
+    error = 'required';
+  } else if (control.hasError('min')) {
+    error = `Min value must greater than or equal to ${control.errors.min.min}`;
+  } else if (control.hasError('max')) {
+    error = `Max value must be less than or equal to ${control.errors.max.max}`;
+  }
+
+  return error;
+}
+
 export {
   createFeatureForm,
-}
+  getFeatureControlError,
+};

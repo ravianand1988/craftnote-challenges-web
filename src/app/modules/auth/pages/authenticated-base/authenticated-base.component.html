@@ -1,17 +1,23 @@
-<mat-toolbar color="primary">
-  <mat-icon>local_fire_department</mat-icon>
-  <span>CRAFTNOTE Challenges</span>
-
-  <div class="form-actions">
-    <div
-      *ngIf="(userEmail$ | async) as email"
-      class="user-email"
-    >
-      {{ email }}
+<div class="container-wrapper">
+  <mat-toolbar color="primary">
+    <mat-icon>local_fire_department</mat-icon>
+    <span>CRAFTNOTE Challenges</span>
+    <div class="form-actions">
+      <div
+        *ngIf="(userEmail$ | async) as email"
+        class="user-email"
+      >
+        {{ email }}
+      </div>
+      <button mat-raised-button
+        color="accent"
+        (click)="logout()"
+      >
+        Logout
+      </button>
     </div>
-    <button mat-raised-button (click)="logout()" color="accent">Logout</button>
+  </mat-toolbar>
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
   </div>
-</mat-toolbar>
-<div class="content-wrapper">
-  <router-outlet></router-outlet>
 </div>

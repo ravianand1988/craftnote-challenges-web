@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
-import { Feature } from '../features/features.component';
-import { createFeatureForm } from './feature-form.form-config';
+import {
+  createFeatureForm,
+  getFeatureControlError,
+} from './feature-form.form-config';
 
-interface FeatureDialogData {
-  feature: Partial<Feature>;
-}
 
 @Component({
   selector: 'app-feature-form',
@@ -16,11 +15,20 @@ interface FeatureDialogData {
 })
 export class FeatureFormComponent {
   public form = createFeatureForm();
+  public getFormError = getFeatureControlError;
 
   constructor(
     public dialogRef: MatDialogRef<FeatureFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: FeatureDialogData,
   ) { }
+
+  public submit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.dialogRef.close(this.form.value);
+  }
 
   public cancel(): void {
     this.dialogRef.close();

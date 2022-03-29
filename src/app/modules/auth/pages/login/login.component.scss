@@ -25,13 +25,13 @@ mat-card-content {
   justify-content: center;
 }
 
+mat-error {
+  font-size: 0.875rem;
+}
+
 .login-error {
   margin-bottom: 1.5rem;
   width: 350px;
-}
-
-mat-error {
-  font-size: 0.875rem;
 }
 
 .form-actions {
