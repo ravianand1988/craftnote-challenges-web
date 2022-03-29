@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "craftnote-rk": {
+      "hosting": {
+        "craftnote-challenges-web": [
+          "craftnote-rk"
+        ]
+      }
+    }
+  }
+}
