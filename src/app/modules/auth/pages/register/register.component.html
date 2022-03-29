@@ -4,19 +4,21 @@
   </mat-card-title>
   <mat-card-content>
     <form [formGroup]="form">
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email *</mat-label>
         <input
           type="text"
           matInput
-          placeholder="john@craftnote.de"
+          placeholder="marc@craftnote.de"
           formControlName="email"
         >
         <mat-error *ngIf="form.get('email')?.invalid">
-          {{ getEmailError() }}
+          {{ getEmailError(form.controls.email) }}
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password *</mat-label>
         <input
           type="password"
           matInput
@@ -24,7 +26,7 @@
           formControlName="password"
         >
         <mat-error *ngIf="form.get('password')?.invalid">
-          {{ getPasswordError() }}
+          {{ getPasswordError(form.controls.password) }}
         </mat-error>
       </mat-form-field>
 

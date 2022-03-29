@@ -1,0 +1,29 @@
+<header class="header-features">
+  <h2 class="header-features__title">Features!</h2>
+  <button mat-flat-button
+    color="primary"
+    (click)="addFeature()"
+  >
+    <mat-icon>add</mat-icon>
+    <span>Add feature</span>
+  </button>
+</header>
+
+<section class="content-features">
+  <div
+    echarts
+    class="chart-features"
+    [options]="chartOptions$ | async"
+  ></div>
+</section>
+
+<footer class="footer-features">
+  <button mat-flat-button
+    color="primary"
+    (click)="addFeature()"
+  >
+    <mat-icon>add</mat-icon>
+    <span>Add feature</span>
+  </button>
+</footer>
+

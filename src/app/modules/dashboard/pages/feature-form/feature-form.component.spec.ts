@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AuthFormComponent } from './auth-form.component';
+import { FeatureFormComponent } from './feature-form.component';
 
-describe('AuthFormComponent', () => {
-  let component: AuthFormComponent;
-  let fixture: ComponentFixture<AuthFormComponent>;
+describe('FeatureFormComponent', () => {
+  let component: FeatureFormComponent;
+  let fixture: ComponentFixture<FeatureFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuthFormComponent ]
+      declarations: [ FeatureFormComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AuthFormComponent);
+    fixture = TestBed.createComponent(FeatureFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

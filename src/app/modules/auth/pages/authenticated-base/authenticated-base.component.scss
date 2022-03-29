@@ -1,0 +1,17 @@
+.container-wrapper {
+  height: 100%;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+
+  > button {
+    margin-right: 1rem;
+  }
+}
+
+.user-email {
+ margin-right: 1rem;
+}
