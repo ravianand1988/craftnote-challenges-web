@@ -15,9 +15,9 @@ import { FeatureFormComponent, FeaturesComponent } from './pages';
   ],
   imports: [
     DashboardRoutingModule,
-    SharedModule,
     MatDialogModule,
     NgxEchartsModule,
+    SharedModule,
   ]
 })
 export class DashboardModule { }
