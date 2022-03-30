@@ -130,7 +130,7 @@ describe('LoginComponent', () => {
       form.patchValue({ email: 'user@mail.com', password: 'Password1' });
       (mockFireAuth.signInWithEmailAndPassword as jasmine.Spy).and.rejectWith({
         message: 'Invalid email or password',
-      })
+      });
       component.submit();
       tick();
 

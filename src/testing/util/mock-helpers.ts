@@ -179,18 +179,9 @@ function createMockProvider<T extends any>(
   };
 }
 
-function resetObservable(mock: Mock, name) {
-  const subject = new ReplaySubject();
-  const spy = mock[name];
-  spy.calls.reset();
-  spy.and.returnValue(subject);
-  mock._subjects[name] = subject;
-}
-
 export {
   createMock,
   createMockProvider,
-  resetObservable,
   Mock,
   MockProvider,
 };

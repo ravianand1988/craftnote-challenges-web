@@ -23,7 +23,7 @@ interface Feature {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FeaturesComponent implements OnInit {
-  private _featureCollection: AngularFirestoreCollection<Feature>;
+  private featureCollection: AngularFirestoreCollection<Feature>;
 
   public chartOptions$: Observable<any>;
 
@@ -33,8 +33,8 @@ export class FeaturesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._featureCollection = this.fireStore.collection<Feature>('features');
-    this.chartOptions$ = this._featureCollection.valueChanges().pipe(
+    this.featureCollection = this.fireStore.collection<Feature>('features');
+    this.chartOptions$ = this.featureCollection.valueChanges().pipe(
       map((features) => {
         const xAxisData = features.map(f => f.featureName);
         const dataImportance = features.map(f => f.importance);
@@ -86,7 +86,7 @@ export class FeaturesComponent implements OnInit {
           return;
         }
 
-        this._featureCollection.add(feature);
+        this.featureCollection.add(feature);
       }),
     );
   }
@@ -94,4 +94,4 @@ export class FeaturesComponent implements OnInit {
 
 export {
   Feature,
-}
+};

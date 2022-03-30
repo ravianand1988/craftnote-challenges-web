@@ -17,8 +17,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
-  private _loginError = new Subject<string>();
-  public loginError$: Observable<string> = this._loginError.asObservable();
+  private loginError = new Subject<string>();
+  public loginError$: Observable<string> = this.loginError.asObservable();
 
   public form = createAuthForm();
   public getEmailError = getEmailError;
@@ -40,7 +40,7 @@ export class LoginComponent {
     this.fireAuth.signInWithEmailAndPassword(email, password)
       .then(() => this.router.navigateByUrl('/dashboard'))
       .catch((error) => {
-        this._loginError.next(error.message);
+        this.loginError.next(error.message);
         console.warn('error on user login: ', error);
       });
   }

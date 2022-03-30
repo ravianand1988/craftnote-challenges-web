@@ -130,7 +130,7 @@ describe('RegisterComponent', () => {
       form.patchValue({ email: 'user@mail.com', password: 'Password1' });
       (mockFireAuth.createUserWithEmailAndPassword as jasmine.Spy).and.rejectWith({
         message: 'Error creating user.',
-      })
+      });
       component.submit();
       tick();
 

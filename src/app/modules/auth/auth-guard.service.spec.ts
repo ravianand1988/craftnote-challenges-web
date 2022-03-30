@@ -3,7 +3,7 @@ import { cold } from 'jasmine-marbles';
 import { Mock, mockProviders } from 'src/testing';
 
 import { AuthGuardService } from './auth-guard.service';
-import { user } from './auth.form-config';
+import { User } from './auth.form-config';
 import { AuthenticatedBaseComponent, LoginComponent } from './pages';
 
 
@@ -13,7 +13,7 @@ describe('AuthGuardService', () => {
   let mockFireAuth: Mock;
   let mockRouter: Mock;
 
-  const mockUser: Partial<user> = {
+  const mockUser: Partial<User> = {
     email: 'user@mail.com',
   };
 

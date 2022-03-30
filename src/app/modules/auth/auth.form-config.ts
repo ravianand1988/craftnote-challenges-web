@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 
-interface user {
+interface User {
   email: string;
   password: string;
 }
@@ -59,5 +59,5 @@ export {
   FormErrorCode,
   getEmailError,
   getPasswordError,
-  user,
+  User,
 };
