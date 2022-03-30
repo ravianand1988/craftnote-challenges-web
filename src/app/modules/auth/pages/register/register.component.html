@@ -12,7 +12,7 @@
           placeholder="marc@craftnote.de"
           formControlName="email"
         >
-        <mat-error *ngIf="form.get('email')?.invalid">
+        <mat-error *ngIf="form.get('email')?.invalid" class="error-email">
           {{ getEmailError(form.controls.email) }}
         </mat-error>
       </mat-form-field>
@@ -25,7 +25,7 @@
           placeholder="Password"
           formControlName="password"
         >
-        <mat-error *ngIf="form.get('password')?.invalid">
+        <mat-error *ngIf="form.get('password')?.invalid" class="error-password">
           {{ getPasswordError(form.controls.password) }}
         </mat-error>
       </mat-form-field>
@@ -39,12 +39,14 @@
 
       <div class="form-actions">
         <button
+          class="button-link-login"
           mat-stroked-button
           [routerLink]="['/login']"
         >
           Already a member?
         </button>
         <button
+          class="button-register"
           type="submit"
           mat-raised-button
           color="primary"

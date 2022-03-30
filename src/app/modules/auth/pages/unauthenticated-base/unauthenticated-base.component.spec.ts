@@ -1,25 +1,32 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
-import { UnauthenticatedBaseComponent } from './unauthenticated-base.component';
+import { createComponentFactory, Spectator } from '@ngneat/spectator';
+
+import {
+  UnauthenticatedBaseComponent,
+} from './unauthenticated-base.component';
 
 describe('UnauthenticatedBaseComponent', () => {
   let component: UnauthenticatedBaseComponent;
-  let fixture: ComponentFixture<UnauthenticatedBaseComponent>;
+  let spectator: Spectator<UnauthenticatedBaseComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ UnauthenticatedBaseComponent ]
-    })
-    .compileComponents();
+  const factory = createComponentFactory({
+    component: UnauthenticatedBaseComponent,
+    imports: [
+      RouterTestingModule,
+    ]
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UnauthenticatedBaseComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    spectator = factory();
+    component = spectator.component;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a router outlet', () => {
+    expect('router-outlet').toExist();
   });
 });

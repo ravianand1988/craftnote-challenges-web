@@ -17,8 +17,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
-  private _registerError = new Subject<string>();
-  public registerError$: Observable<string> = this._registerError.asObservable();
+  private registerError = new Subject<string>();
+  public registerError$: Observable<string> = this.registerError.asObservable();
 
   public form = createAuthForm();
   public getEmailError = getEmailError;
@@ -40,7 +40,7 @@ export class RegisterComponent {
     this.fireAuth.createUserWithEmailAndPassword(email, password)
       .then(() => this.router.navigateByUrl('/dashboard'))
       .catch((error) => {
-        this._registerError.next(error.message);
+        this.registerError.next(error.message);
         console.warn('error on user create: ', error);
       });
   }
