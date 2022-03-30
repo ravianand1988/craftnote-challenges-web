@@ -17,6 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
+  /** A Subject to publish login error message from Angular fire auth signIn */
   private loginError = new Subject<string>();
   public loginError$: Observable<string> = this.loginError.asObservable();
 
