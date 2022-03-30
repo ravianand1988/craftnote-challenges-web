@@ -19,6 +19,9 @@ enum FormErrorCode {
 
 const PASSWORD_PATTERN = '^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
 
+/**
+ * Return a form group containing form controls to login & register.
+ */
 function createAuthForm(): FormGroup {
   // Demo user: foo@craftnote.de, Password1
   const form = new FormBuilder().group({
@@ -29,6 +32,9 @@ function createAuthForm(): FormGroup {
   return form;
 }
 
+/**
+ * Return custom error message for the email form control if any
+ */
 function getEmailError(control: FormControl | AbstractControl): string {
   let message = '';
 
@@ -41,6 +47,9 @@ function getEmailError(control: FormControl | AbstractControl): string {
   return message;
 }
 
+/**
+ * Return custom error message for the password form control if any
+ */
 function getPasswordError(control: FormControl | AbstractControl): string {
   let message = '';
 

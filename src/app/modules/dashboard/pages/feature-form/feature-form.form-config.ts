@@ -16,6 +16,9 @@ function createFeatureForm(): FormGroup {
   return form;
 }
 
+/**
+ * Return custom error message for the feature form control
+ */
 function getFeatureControlError(control: FormControl | AbstractControl): string {
   let error;
 

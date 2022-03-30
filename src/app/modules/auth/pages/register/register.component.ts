@@ -17,6 +17,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterComponent {
+  /** A Subject to publish register error message from Angular fire auth createUser */
   private registerError = new Subject<string>();
   public registerError$: Observable<string> = this.registerError.asObservable();
 
