@@ -1,6 +1,10 @@
 :host {
   display: block;
-  padding: 2.5rem;
+  padding: 1rem;
+
+  @media only screen and (min-width: 600px) {
+    padding: 2.5rem;
+  }
 }
 
 .header-features {
