@@ -1,3 +1,6 @@
+$font-size-small: 0.875rem;
+$font-size-normal: 1rem;
+
 .container-wrapper {
   height: 100%;
 }
@@ -7,11 +10,25 @@
   justify-content: flex-end;
   width: 100%;
 
-  > button {
+  >button {
     margin-right: 1rem;
   }
 }
 
+.title {
+  display: none;
+
+  @media only screen and (min-width: 600px) {
+    display: inline-block;
+  }
+}
+
 .user-email {
- margin-right: 1rem;
+  margin-right: 1rem;
+  font-size: $font-size-small;
+
+  @media only screen and (min-width: 600px) {
+    display: inline-block;
+    font-size: $font-size-normal;
+  }
 }
